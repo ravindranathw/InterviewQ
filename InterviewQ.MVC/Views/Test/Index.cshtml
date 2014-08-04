@@ -1,0 +1,20 @@
+﻿@model InterviewQ.MVC.Models.TestModel
+@{
+    var totalQuestions = Model.Questions.Count;
+}
+<h2>@Model.TestName</h2>
+<!--TODO: This Time thing should come from Partial View and Ajaxly should update-->
+<h3>Time Left: @Model.TestTime Hrs</h3>
+<hr/>
+@if (Model.CurrentQuestionID == 0)
+{
+    @Html.Action("Questions", new {testID = Model.TestID})
+}
+else if (Model.CurrentQuestionID > 0 && Model.CurrentQuestionID < totalQuestions)
+{
+    @Html.Action("Questions", new { testID = Model.TestID, questionID = totalQuestions })
+}
+else if (Model.CurrentQuestionID == totalQuestions)
+{
+    <p>Thanks for taking the test. We will email results ASAP</p>
+}
