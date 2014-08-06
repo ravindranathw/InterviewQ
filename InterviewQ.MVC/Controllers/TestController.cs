@@ -27,8 +27,9 @@ namespace InterviewQ.MVC.Controllers
         }
 
         [HttpPost]
-        public ActionResult Questions(int testID, int questionID=0)
+        public ActionResult Questions(int testID, FormCollection formCollection, int questionID=0)
         {
+            var q = formCollection.Count >2 ?  formCollection.GetValues(1):null;
             var testModel = _testColletion.FirstOrDefault(r => r.TestID == testID);
            
             if (questionID == 0)
@@ -43,7 +44,6 @@ namespace InterviewQ.MVC.Controllers
             {
                 testModel.CurrentQuestionID--;
             }
-            
 
             return PartialView("_Question", testModel);
         }
@@ -69,11 +69,17 @@ namespace InterviewQ.MVC.Controllers
                 TestTime = 1.00,
                 Questions = new List<QuestionModel>()
                 {
-                    new QuestionModel(){QuestionID = 1, Question = "Question 1"},
-                    new QuestionModel(){QuestionID = 2, Question = "Question 2"},
-                    new QuestionModel(){QuestionID = 3, Question = "Question 3"},
-                    new QuestionModel(){QuestionID = 4, Question = "Question 4"},
-                    new QuestionModel(){QuestionID = 5, Question = "Question 5"},
+                    new QuestionModel(){QuestionID = 1, HasMultipleAnswers=true, Question = "Question 1", PossibleAnswers = new List<PossibleAnswerModel>()
+                    {
+                        new PossibleAnswerModel(){DisplayText = "Possible Answer 1"},
+                        new PossibleAnswerModel(){DisplayText = "Possible Answer 2"},                   
+                        new PossibleAnswerModel(){DisplayText = "Possible Answer 3"},   
+                        new PossibleAnswerModel(){DisplayText = "Possible Answer 4"},   
+                    }},
+                    new QuestionModel(){QuestionID = 2, HasMultipleAnswers=true, Question = "Question 2"},
+                    new QuestionModel(){QuestionID = 3, HasMultipleAnswers=true, Question = "Question 3"},
+                    new QuestionModel(){QuestionID = 4, HasMultipleAnswers=true, Question = "Question 4"},
+                    new QuestionModel(){QuestionID = 5, HasMultipleAnswers=true, Question = "Question 5"},
                 }
             },
             new TestModel()

@@ -228,6 +228,7 @@
     <Content Include="Views\Test\Index.cshtml" />
     <Content Include="Views\Test\_Start.cshtml" />
     <Content Include="Views\Test\_Question.cshtml" />
+    <Content Include="Views\Test\_MultipleAnswerQuestionView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

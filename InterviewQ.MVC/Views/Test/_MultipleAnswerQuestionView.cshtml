@@ -1,0 +1,22 @@
+﻿@model InterviewQ.MVC.Models.QuestionModel
+
+@if (!Model.HasMultipleAnswers)
+{
+    throw new InvalidOperationException("This answer optioin template doesn't support this type of questions");
+}
+
+@foreach(var item in Model.PossibleAnswers)
+{ 
+<div class="row">
+    <div class="col-lg-6">
+        <div class="input-group">
+            <span class="input-group-addon">
+                <input type="checkbox" value="@item.IsSelected">
+            </span>
+            <p>
+                @item.DisplayText
+            </p>
+        </div><!-- /input-group -->
+    </div><!-- /.col-lg-6 -->
+</div><!-- /.row -->
+}

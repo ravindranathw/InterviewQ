@@ -12,7 +12,7 @@
 }
 else if (Model.CurrentQuestionID > 0 && Model.CurrentQuestionID < totalQuestions)
 {
-    @Html.Action("Questions", new { testID = Model.TestID, questionID = totalQuestions })
+    @Html.Action("Questions", new { testID = Model.TestID, questionID = Model.CurrentQuestionID })
 }
 else if (Model.CurrentQuestionID == totalQuestions)
 {

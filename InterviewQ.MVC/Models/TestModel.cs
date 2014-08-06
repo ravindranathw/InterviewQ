@@ -24,5 +24,13 @@ namespace InterviewQ.MVC.Models
     {
         public int QuestionID { get; set; }
         public string Question { get; set; }
+        public bool HasMultipleAnswers { get; set; }
+        public IList<PossibleAnswerModel> PossibleAnswers { get; set; }   
+    }
+
+    public class PossibleAnswerModel
+    {
+        public bool IsSelected { get; set; }
+        public string DisplayText { get; set; }
     }
 }

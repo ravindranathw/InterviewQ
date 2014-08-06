@@ -13,6 +13,12 @@
         <p>@CurrentQuestion.Question</p>
     </div>
     <p>
+     @if (CurrentQuestion.HasMultipleAnswers)
+     {
+         @Html.Partial("_MultipleAnswerQuestionView", CurrentQuestion)
+     }
+    </p>
+    <p>
         @if (Model.CurrentQuestionID > 0 && Model.CurrentQuestionID < Model.Questions.Count)
         {
             if (Model.CurrentQuestionID > 1)
