@@ -1,6 +1,9 @@
 ﻿@model InterviewQ.MVC.Models.TestModel
-@using (Html.BeginForm())
+@using (Html.BeginForm("Start", "Test",new {testID = Model.TestID}))
 {
+    @Html.HiddenFor(r => r.TestID)
+    
+    
     @Html.ValidationSummary(true)
         <div>Total Questions : @Model.Questions.Count</div>
         <div>
