@@ -2,28 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using InterviewQ.Business.Contracts;
+using System.Threading.Tasks;
 
 namespace InterviewQ.Business.Entities
 {
-    public class Test:ITest
+    public class Test
     {
+        public Guid Id { get; set; }
 
-        #region ITest Members
+        public string Name { get; set; }
 
-        public ICollection<IQuestion> Questions
-        {
-            get { throw new NotImplementedException(); }
-        }
+    }
 
-        #endregion
-
-        #region ITestInfo Members
-
-        public Guid TestID { get; private set; }
-
-        public string TestName { get; private set; }
-
-        #endregion
+    public class TestQuestions
+    {
+        public Guid TestID { get; set; }
+        public Guid TestQuestionID { get; set; }
     }
 }

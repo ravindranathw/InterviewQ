@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterviewQ.MVC", "InterviewQ.MVC\InterviewQ.MVC.csproj", "{9D89D038-4DFC-443B-989F-ADD0A5813A65}"
 EndProject
@@ -16,6 +16,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterviewQ.Business.Entities", "InterviewQ.Business.Entities\InterviewQ.Business.Entities.csproj", "{90F3ED5F-6C93-4C54-9787-592F66EA0838}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterviewQ.Business.Contracts", "InterviewQ.Business.Contracts\InterviewQ.Business.Contracts.csproj", "{76603B64-542B-44C5-9F66-E509AFE141A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterviewQ.Resources.EF", "InterviewQ.Resources.EF\InterviewQ.Resources.EF.csproj", "{0001D08B-8FE7-4096-ACEA-BA6FA8CE2C70}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resources", "Resources", "{2CB50395-DFBC-49BD-BAB9-0B7BC6371282}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +43,10 @@ Global
 		{76603B64-542B-44C5-9F66-E509AFE141A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{76603B64-542B-44C5-9F66-E509AFE141A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{76603B64-542B-44C5-9F66-E509AFE141A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0001D08B-8FE7-4096-ACEA-BA6FA8CE2C70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0001D08B-8FE7-4096-ACEA-BA6FA8CE2C70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0001D08B-8FE7-4096-ACEA-BA6FA8CE2C70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0001D08B-8FE7-4096-ACEA-BA6FA8CE2C70}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,5 +56,6 @@ Global
 		{99181FEA-C198-4308-B8EE-094DB04FD558} = {AD4BB814-EAB0-441A-986B-85205D0A65A8}
 		{90F3ED5F-6C93-4C54-9787-592F66EA0838} = {6608C5C4-43E1-4FEC-BD1E-1F557FE6AA32}
 		{76603B64-542B-44C5-9F66-E509AFE141A8} = {6608C5C4-43E1-4FEC-BD1E-1F557FE6AA32}
+		{0001D08B-8FE7-4096-ACEA-BA6FA8CE2C70} = {2CB50395-DFBC-49BD-BAB9-0B7BC6371282}
 	EndGlobalSection
 EndGlobal
