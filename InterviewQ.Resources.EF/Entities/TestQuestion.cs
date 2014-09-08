@@ -1,6 +1,6 @@
 using System;
 
-namespace InterviewQ.Business.Entities
+namespace InterviewQ.Resources.EF.Entities
 {
     public partial class TestQuestion
     {

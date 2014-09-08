@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
-using InterviewQ.Business.Entities;
+using InterviewQ.Resources.EF.Entities;
 
 namespace InterviewQ.Resources.EF.Models.Mapping
 {

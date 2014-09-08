@@ -1,6 +1,5 @@
 using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
-using InterviewQ.Business.Entities;
+using InterviewQ.Resources.EF.Entities;
 using InterviewQ.Resources.EF.Models.Mapping;
 
 namespace InterviewQ.Resources.EF.Models

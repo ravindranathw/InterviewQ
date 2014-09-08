@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace InterviewQ.Business.Entities
+namespace InterviewQ.Resources.EF.Entities
 {
     public partial class Category
     {

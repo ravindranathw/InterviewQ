@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using InterviewQ.Business.Contracts;
 
-namespace InterviewQ.Business.Entities
+namespace InterviewQ.Resources.Data.Entities
 {
     public class Test2:ITest
     {
