@@ -47,6 +47,12 @@
     <Compile Include="TestModel.cs" />
     <Compile Include="TestQuestionModel.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\InterviewQ.Resources.EF\InterviewQ.Resources.EF.csproj">
+      <Project>{0001d08b-8fe7-4096-acea-ba6fa8ce2c70}</Project>
+      <Name>InterviewQ.Resources.EF</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

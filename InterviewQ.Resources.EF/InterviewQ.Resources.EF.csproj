@@ -70,6 +70,10 @@
     <Compile Include="Migrations\201409080338569_UpdatedEF.Designer.cs">
       <DependentUpon>201409080338569_UpdatedEF.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201409080456190_DifficultyEnumAdd.cs" />
+    <Compile Include="Migrations\201409080456190_DifficultyEnumAdd.Designer.cs">
+      <DependentUpon>201409080456190_DifficultyEnumAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Mapping\TestQuestionsMap.cs" />
     <Compile Include="Models\Mapping\TestMap.cs" />
@@ -95,6 +99,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201409080338569_UpdatedEF.resx">
       <DependentUpon>201409080338569_UpdatedEF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201409080456190_DifficultyEnumAdd.resx">
+      <DependentUpon>201409080456190_DifficultyEnumAdd.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -12,8 +12,7 @@ namespace InterviewQ.Resources.EF.Models.Mapping
 
             // Properties
             this.Property(t => t.Difficulty)
-                .IsRequired()
-                .HasMaxLength(50);
+                .IsRequired();
 
             // Table & Column Mappings
             this.ToTable("DifficultyLevels");

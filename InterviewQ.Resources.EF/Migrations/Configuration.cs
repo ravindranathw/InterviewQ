@@ -25,7 +25,7 @@ namespace InterviewQ.Resources.EF.Migrations
                 Name = ".NET",
             };
 
-            var difficulty = new DifficultyLevel() {Difficulty = "Hard", Id = Guid.NewGuid()};
+            var difficulty = new DifficultyLevel() {Difficulty = DifficultyLevelEnum.Hard, Id = Guid.NewGuid()};
 
             var hardQuestion = new TestQuestion()
             {
