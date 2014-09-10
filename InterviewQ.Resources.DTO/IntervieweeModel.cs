@@ -1,4 +1,4 @@
-﻿namespace InterviewQ.Resources.EF.Entities
+﻿namespace InterviewQ.Business.Models
 {
     public class IntervieweeModel
     {

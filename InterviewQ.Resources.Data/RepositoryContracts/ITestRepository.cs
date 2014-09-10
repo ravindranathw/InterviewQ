@@ -4,19 +4,32 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using InterviewQ.Business.Models;
 using InterviewQ.Resources.EF.Entities;
 
 namespace InterviewQ.Resources.Data.RepositoryContracts
 {
-    public interface ITestRepository
+    public interface ITestRepository: IRepository<TestModel, Test>
     {
-        TestModel GetById(Guid id);
+        
+    }
 
-        TestModel GetGeneratedTest(int numberOfQuestions, Category category, DifficultyLevelEnum difficultyLevel);
+    public interface IDifficultyLevelRepository : IRepository<DifficultyLevelModel, DifficultyLevel>
+    {
+        
+    }
+    public interface IQuestionRepository : IRepository<TestQuestionModel, TestQuestion>
+    {
 
-        Task<TestModel> GetByIdAsync(Guid id);
-        IList<TestModel> Get(Expression<Func<Test, bool>> predicate = null);
-        Task<IList<TestModel>> GetAsync(Expression<Func<Test, bool>> predicate = null);
+        /// <summary>
+        /// Gives randomly ordered question list with given predicate
+        /// </summary>
+        /// <param name="predicate"></param>
+        /// <returns></returns>
+        new IList<TestQuestionModel> Get(Expression<Func<TestQuestion, bool>> predicate = null);
+    }
+    public interface ICatagoryRepository : IRepository<CategoryModel, Category>
+    {
 
     }
 }

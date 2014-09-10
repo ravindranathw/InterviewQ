@@ -1,6 +1,7 @@
 using System;
+using InterviewQ.Resources.EF.Entities;
 
-namespace InterviewQ.Resources.EF.Entities
+namespace InterviewQ.Business.Models
 {
     public partial class QuestionAnswerModel
     {

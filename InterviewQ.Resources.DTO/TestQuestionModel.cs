@@ -1,4 +1,5 @@
 using System;
+using InterviewQ.Business.Models;
 
 namespace InterviewQ.Resources.EF.Entities
 {

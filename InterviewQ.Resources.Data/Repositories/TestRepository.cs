@@ -39,29 +39,14 @@ namespace InterviewQ.Resources.Data.Repositories
 
         protected override void Remove(Test entity)
         {
+            //TODO: Restrict to admin level
             throw new NotImplementedException();
         }
 
         protected override void Add(TestModel source, Test dest)
         {
+            //TODO: Restrict to admin level
             throw new NotImplementedException();
-        }
-
-      
-        public TestModel GetGeneratedTest(int numberOfQuestions, Category category, DifficultyLevelEnum difficultyLevel)
-        {
-            var cat = uow.Categories.SingleOrDefault(c => c.Id == category.Id);
-
-            var difficulty = uow.DifficultyLevels.SingleOrDefault(d => d.Difficulty == difficultyLevel);
-
-            var questions = cat.Questions.Where(q => q.DifficultyLevelID == difficulty.Id).Select(q => new TestQuestionModel(q)).ToList();
-
-            return new TestModel()
-            {
-                Id = Guid.NewGuid(),
-                Name = string.Format("{0} Test", category.Name),
-                Questions = questions,
-            };
         }
 
         #endregion
