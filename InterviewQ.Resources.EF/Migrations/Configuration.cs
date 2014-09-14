@@ -15,6 +15,7 @@ namespace InterviewQ.Resources.EF.Migrations
         {
             AutomaticMigrationDataLossAllowed = true;
             AutomaticMigrationsEnabled = true;
+            
         }
 
         protected override void Seed(InterviewQ.Resources.EF.Models.InterviewQContext context)
@@ -25,20 +26,36 @@ namespace InterviewQ.Resources.EF.Migrations
                 Name = ".NET",
             };
 
-            var difficulty = new DifficultyLevel() {Difficulty = DifficultyLevelEnum.Hard, Id = Guid.NewGuid()};
+            var difficultyLevelHard = new DifficultyLevel() {Difficulty = DifficultyLevelEnum.Hard, Id = Guid.NewGuid()};
+            var difficultyLevelEasy = new DifficultyLevel() { Difficulty = DifficultyLevelEnum.Easy, Id = Guid.NewGuid() };
 
             var hardQuestion = new TestQuestion()
             {
                 CategoryID = categories.Id,
-                DifficultyLevelID = difficulty.Id,
+                DifficultyLevelID = difficultyLevelHard.Id,
                 Id = Guid.NewGuid(),
                 Question = "Difficult .NET Question",
             };
 
-            var answer = new QuestionAnswer()
+
+            var easyQuestion = new TestQuestion()
+            {
+                CategoryID = categories.Id,
+                DifficultyLevelID = difficultyLevelEasy.Id,
+                Id = Guid.NewGuid(),
+                Question = "Easy .NET Question",
+            };
+
+            var  answerForHardQuestion = new QuestionAnswer()
             {
                 Answer = "Answe for .NET Difficult Question",
                 QuestionID = hardQuestion.Id,
+            };
+
+            var answerForEasyQuestion = new QuestionAnswer()
+            {
+                Answer = "Answe for .NET Easy Question",
+                QuestionID = easyQuestion.Id,
             };
 
             var test = new Test()
@@ -53,13 +70,16 @@ namespace InterviewQ.Resources.EF.Migrations
                 TestQuestionID = hardQuestion.Id,
             };
 
-            context.DifficultyLevels.AddOrUpdate(difficulty);
+            context.DifficultyLevels.AddOrUpdate(difficultyLevelHard);
+            context.DifficultyLevels.AddOrUpdate(difficultyLevelEasy);
 
             context.Categories.AddOrUpdate(categories);
 
-            context.Answers.AddOrUpdate(answer);
+            context.Answers.AddOrUpdate(answerForHardQuestion);
+            context.Answers.AddOrUpdate(answerForEasyQuestion);
 
             context.Questions.AddOrUpdate(hardQuestion);
+            context.Questions.AddOrUpdate(easyQuestion);
 
             context.Tests.AddOrUpdate(test);
 
