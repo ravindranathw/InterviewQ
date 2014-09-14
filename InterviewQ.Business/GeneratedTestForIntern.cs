@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using InterviewQ.Business.Contracts;
 using InterviewQ.Business.Models;
 using InterviewQ.Resources.Data.RepositoryContracts;
 using InterviewQ.Resources.EF.Entities;

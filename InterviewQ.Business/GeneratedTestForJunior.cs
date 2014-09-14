@@ -10,16 +10,16 @@ using InterviewQ.Resources.EF.Entities;
 namespace InterviewQ.Business
 {
     /// <summary>
-    /// Test generated for an Mid level with 30% easy 50% medium 20% hard questions
+    /// Test generated for an Junior level with 70% easy 30% Medium questions
     /// </summary>
-    public class GeneratedTestForMid : IGeneratedTest
+    public class GeneratedTestForJunior : IGeneratedTest
     {
         private readonly ICatagoryRepository _catagoryRepository;
         private readonly IDifficultyLevelRepository _difficultyLevelRepository;
         private readonly IQuestionRepository _questionRepository;
 
 
-        public GeneratedTestForMid(
+        public GeneratedTestForJunior(
             IQuestionRepository questionRepository,
             IDifficultyLevelRepository difficultyLevelRepository,
             ICatagoryRepository catagoryRepository)
@@ -30,30 +30,28 @@ namespace InterviewQ.Business
         }
 
         /// <summary>
-        ///  Generate a Mid Level Test
+        ///  Generate a Junior Level Test
         /// </summary>
         /// <param name="numberOfQuestions">Number of questions</param>
         /// <param name="category">Test category</param>
         /// <returns>Generated Test</returns>
         public TestModel GetTestWith(int numberOfQuestions, CategoryModel category)
         {
-            var midTestQuestions = new List<TestQuestionModel>();
+            var juniorTestQuestions = new List<TestQuestionModel>();
 
             var cat = _catagoryRepository.Get(c => c.Id == category.Id).SingleOrDefault();
 
-            var difficultyEasy   = _difficultyLevelRepository.Get(d => d.Difficulty == DifficultyLevelEnum.Easy).SingleOrDefault();
+            var difficultyEasy = _difficultyLevelRepository.Get(d => d.Difficulty == DifficultyLevelEnum.Easy).SingleOrDefault();
+            
             var difficultyMedium = _difficultyLevelRepository.Get(d => d.Difficulty == DifficultyLevelEnum.Medium).SingleOrDefault();
-            var difficultyHard   = _difficultyLevelRepository.Get(d => d.Difficulty == DifficultyLevelEnum.Hard).SingleOrDefault();
 
-            var numberOfEasyQuestions   = 30.FloorPercentageOf(numberOfQuestions);
-            var numberOfMediumQuestions = 50.FloorPercentageOf(numberOfQuestions);
-            var numberOfHardQuestions   = 20.FloorPercentageOf(numberOfQuestions);
-
-            numberOfHardQuestions += numberOfQuestions - (numberOfEasyQuestions + numberOfMediumQuestions + numberOfHardQuestions);
+            var numberOfEasyQuestions   = 70.FloorPercentageOf(numberOfQuestions);
+            var numberOfMediumQuestions = 30.FloorPercentageOf(numberOfQuestions);
+            numberOfEasyQuestions      += numberOfQuestions - (numberOfEasyQuestions + numberOfMediumQuestions);
 
             var easyQuestions =
                 _questionRepository
-                    .Get(q => q.CategoryID == cat.Id && q.DifficultyLevelID == difficultyEasy.Id)
+                    .Get(q => q.CategoryID == cat.Id && q.DifficultyLevelID == difficultyEasy.Id )
                     .Take(numberOfEasyQuestions);
 
             var mediumQuestions =
@@ -61,22 +59,13 @@ namespace InterviewQ.Business
                     .Get(q => q.CategoryID == cat.Id && q.DifficultyLevelID == difficultyMedium.Id)
                     .Take(numberOfMediumQuestions);
 
-            var hardQuestions =
-                _questionRepository
-                    .Get(q => q.CategoryID == cat.Id && q.DifficultyLevelID == difficultyHard.Id)
-                    .Take(numberOfHardQuestions);
-
-
-            midTestQuestions = easyQuestions
-                .Union(mediumQuestions)
-                .Union(hardQuestions)
-                .Shuffle().ToList();
+            juniorTestQuestions = easyQuestions.Union(mediumQuestions).Shuffle().ToList();
 
             return new TestModel()
             {
                 Id = Guid.NewGuid(),
                 Name = string.Format("{0} Test", category.Name),
-                Questions = midTestQuestions,
+                Questions = juniorTestQuestions,
             };
         }
 

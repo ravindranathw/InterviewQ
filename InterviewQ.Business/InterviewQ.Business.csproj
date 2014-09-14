@@ -40,12 +40,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GeneratedTestForIntern.cs" />
+    <Compile Include="GeneratedTestForJunior.cs" />
     <Compile Include="GeneratedTestForMid.cs" />
+    <Compile Include="GeneratedTestForSenior.cs" />
     <Compile Include="TestBusinessEngine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util\ExtentionMethods.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\InterviewQ.Business.Contracts2\InterviewQ.Business.Contracts.csproj">
+      <Project>{2699a051-4a08-4f90-b259-815b2386dcf8}</Project>
+      <Name>InterviewQ.Business.Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\InterviewQ.Resources.Data\InterviewQ.Resources.Data.csproj">
       <Project>{96d436fa-fa75-4d95-abab-fdacab2315e9}</Project>
       <Name>InterviewQ.Resources.Data</Name>
