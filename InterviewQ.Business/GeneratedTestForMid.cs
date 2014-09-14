@@ -11,7 +11,7 @@ namespace InterviewQ.Business
     /// <summary>
     /// Test generated for an Mid level with 30% easy 50% medium 20% hard questions
     /// </summary>
-    public class GeneratedTestForMid
+    public class GeneratedTestForMid : IGeneratedTest
     {
         private readonly ICatagoryRepository _catagoryRepository;
         private readonly IDifficultyLevelRepository _difficultyLevelRepository;

@@ -9,7 +9,7 @@ namespace InterviewQ.Business
     /// <summary>
     /// Test generated for an intern level with 100% easy questions
     /// </summary>
-    public class GeneratedTestForIntern
+    public class GeneratedTestForIntern : IGeneratedTest
     {
         private readonly ICatagoryRepository _catagoryRepository;
         private readonly IDifficultyLevelRepository _difficultyLevelRepository;
