@@ -12,19 +12,16 @@ namespace InterviewQ.Business
     /// </summary>
     public class GeneratedTestForIntern : IGeneratedTest
     {
-        private readonly ICatagoryRepository _catagoryRepository;
         private readonly IDifficultyLevelRepository _difficultyLevelRepository;
         private readonly IQuestionRepository _questionRepository;
 
 
         public GeneratedTestForIntern(
             IQuestionRepository questionRepository,
-            IDifficultyLevelRepository difficultyLevelRepository,
-            ICatagoryRepository catagoryRepository)
+            IDifficultyLevelRepository difficultyLevelRepository)
         {
             _questionRepository = questionRepository;
             _difficultyLevelRepository = difficultyLevelRepository;
-            _catagoryRepository = catagoryRepository;
         }
 
         /// <summary>
@@ -35,13 +32,11 @@ namespace InterviewQ.Business
         /// <returns>Generated Test</returns>
         public TestModel GetTestWith(int numberOfQuestions, CategoryModel category)
         {
-            var cat = _catagoryRepository.Get(c => c.Id == category.Id).SingleOrDefault();
-
             var difficulty = _difficultyLevelRepository.Get(d => d.Difficulty == DifficultyLevelEnum.Easy).SingleOrDefault();
 
             var questions =
                 _questionRepository
-                    .Get(q => q.CategoryID == cat.Id && q.DifficultyLevelID == difficulty.Id)
+                    .Get(q => q.CategoryID == category.Id && q.DifficultyLevelID == difficulty.Id)
                     .Take(numberOfQuestions).ToList();
 
             return new TestModel()

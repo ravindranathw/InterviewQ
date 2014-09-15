@@ -1,4 +1,5 @@
-﻿using InterviewQ.Business.Models;
+﻿using System;
+using InterviewQ.Business.Models;
 using InterviewQ.Resources.EF.Entities;
 
 namespace InterviewQ.Business

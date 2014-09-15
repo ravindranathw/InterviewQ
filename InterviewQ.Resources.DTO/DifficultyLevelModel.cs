@@ -17,4 +17,18 @@ namespace InterviewQ.Business.Models
         public string Difficulty { get; set; }
         public virtual ICollection<TestQuestionModel> Questions { get; set; }
     }
+
+    public class TestDifficultyLevelModel
+    {
+        public TestDifficultyLevelModel(TestDifficultyLevel level)
+        {
+            this.Data = level;
+            Id = Convert.ToInt32(level);
+            Difficulty = level.ToString();
+        }
+
+        public TestDifficultyLevel Data { get; private set; }
+        public int Id { get; private set; }
+        public string Difficulty { get; private set; }
+    }
 }

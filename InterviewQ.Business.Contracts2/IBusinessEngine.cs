@@ -15,6 +15,6 @@ namespace InterviewQ.Business.Contracts
 
         IList<CategoryModel> GetCategories();
 
-        IList<DifficultyLevelModel> GetDifficultyLevelModels();
+        IList<TestDifficultyLevelModel> GetTestDifficultyLevels();
     }
 }

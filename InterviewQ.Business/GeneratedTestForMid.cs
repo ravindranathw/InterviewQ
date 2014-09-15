@@ -14,19 +14,16 @@ namespace InterviewQ.Business
     /// </summary>
     public class GeneratedTestForMid : IGeneratedTest
     {
-        private readonly ICatagoryRepository _catagoryRepository;
         private readonly IDifficultyLevelRepository _difficultyLevelRepository;
         private readonly IQuestionRepository _questionRepository;
 
 
         public GeneratedTestForMid(
             IQuestionRepository questionRepository,
-            IDifficultyLevelRepository difficultyLevelRepository,
-            ICatagoryRepository catagoryRepository)
+            IDifficultyLevelRepository difficultyLevelRepository)
         {
             _questionRepository = questionRepository;
             _difficultyLevelRepository = difficultyLevelRepository;
-            _catagoryRepository = catagoryRepository;
         }
 
         /// <summary>
@@ -38,8 +35,7 @@ namespace InterviewQ.Business
         public TestModel GetTestWith(int numberOfQuestions, CategoryModel category)
         {
             var midTestQuestions = new List<TestQuestionModel>();
-
-            var cat = _catagoryRepository.Get(c => c.Id == category.Id).SingleOrDefault();
+            
 
             var difficultyEasy   = _difficultyLevelRepository.Get(d => d.Difficulty == DifficultyLevelEnum.Easy).SingleOrDefault();
             var difficultyMedium = _difficultyLevelRepository.Get(d => d.Difficulty == DifficultyLevelEnum.Medium).SingleOrDefault();
@@ -53,17 +49,17 @@ namespace InterviewQ.Business
 
             var easyQuestions =
                 _questionRepository
-                    .Get(q => q.CategoryID == cat.Id && q.DifficultyLevelID == difficultyEasy.Id)
+                    .Get(q => q.CategoryID == category.Id && q.DifficultyLevelID == difficultyEasy.Id)
                     .Take(numberOfEasyQuestions);
 
             var mediumQuestions =
                 _questionRepository
-                    .Get(q => q.CategoryID == cat.Id && q.DifficultyLevelID == difficultyMedium.Id)
+                    .Get(q => q.CategoryID == category.Id && q.DifficultyLevelID == difficultyMedium.Id)
                     .Take(numberOfMediumQuestions);
 
             var hardQuestions =
                 _questionRepository
-                    .Get(q => q.CategoryID == cat.Id && q.DifficultyLevelID == difficultyHard.Id)
+                    .Get(q => q.CategoryID == category.Id && q.DifficultyLevelID == difficultyHard.Id)
                     .Take(numberOfHardQuestions);
 
 

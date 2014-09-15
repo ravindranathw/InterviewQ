@@ -11,14 +11,9 @@ namespace InterviewQ.MVC.Models
 {
     public class HomeViewModel
     {
-        public HomeViewModel()
-        {
-                
-        }
-
         internal protected IList<CategoryModel> CategoryModels { get; set; }
 
-        internal protected IList<DifficultyLevelModel> DifficultyLevelModels { get; set; } 
+        internal protected IList<TestDifficultyLevelModel>  TestDifficultyLevelsLevels { get; set; } 
 
         [DisplayName("Catagory :")]
         public Guid SelectedCatagoryID { get; set; }
@@ -28,11 +23,11 @@ namespace InterviewQ.MVC.Models
             get { return new SelectList(CategoryModels, "Id", "Name"); }
         }
 
-        public Guid SelectedDifficultyLevelID { get; set; }
+        public int SelectedDifficultyLevelID { get; set; }
 
         public IEnumerable<SelectListItem> DifficultyLevels
         {
-            get { return new SelectList(DifficultyLevelModels, "Id", "Difficulty"); }
+            get { return new SelectList(TestDifficultyLevelsLevels, "Id", "Difficulty"); }
         }
         public int NumberOfQuestions { get; set; }
     }

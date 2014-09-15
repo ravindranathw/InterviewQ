@@ -17,8 +17,7 @@ namespace InterviewQ.MVC.Controllers
             
             return View(_model);
         }
-
-
+        
         [HttpPost]
         public ActionResult Start(int testID)
         {

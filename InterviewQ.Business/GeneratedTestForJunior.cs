@@ -14,19 +14,16 @@ namespace InterviewQ.Business
     /// </summary>
     public class GeneratedTestForJunior : IGeneratedTest
     {
-        private readonly ICatagoryRepository _catagoryRepository;
         private readonly IDifficultyLevelRepository _difficultyLevelRepository;
         private readonly IQuestionRepository _questionRepository;
 
 
         public GeneratedTestForJunior(
             IQuestionRepository questionRepository,
-            IDifficultyLevelRepository difficultyLevelRepository,
-            ICatagoryRepository catagoryRepository)
+            IDifficultyLevelRepository difficultyLevelRepository)
         {
             _questionRepository = questionRepository;
             _difficultyLevelRepository = difficultyLevelRepository;
-            _catagoryRepository = catagoryRepository;
         }
 
         /// <summary>
@@ -39,7 +36,6 @@ namespace InterviewQ.Business
         {
             var juniorTestQuestions = new List<TestQuestionModel>();
 
-            var cat = _catagoryRepository.Get(c => c.Id == category.Id).SingleOrDefault();
 
             var difficultyEasy = _difficultyLevelRepository.Get(d => d.Difficulty == DifficultyLevelEnum.Easy).SingleOrDefault();
             
@@ -51,12 +47,12 @@ namespace InterviewQ.Business
 
             var easyQuestions =
                 _questionRepository
-                    .Get(q => q.CategoryID == cat.Id && q.DifficultyLevelID == difficultyEasy.Id )
+                    .Get(q => q.CategoryID == category.Id && q.DifficultyLevelID == difficultyEasy.Id)
                     .Take(numberOfEasyQuestions);
 
             var mediumQuestions =
                 _questionRepository
-                    .Get(q => q.CategoryID == cat.Id && q.DifficultyLevelID == difficultyMedium.Id)
+                    .Get(q => q.CategoryID == category.Id && q.DifficultyLevelID == difficultyMedium.Id)
                     .Take(numberOfMediumQuestions);
 
             juniorTestQuestions = easyQuestions.Union(mediumQuestions).Shuffle().ToList();

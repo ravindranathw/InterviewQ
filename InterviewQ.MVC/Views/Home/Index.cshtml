@@ -15,7 +15,7 @@
         </div>
         <div class="form-group">
             @Html.Label("Number of Questions", new {@class = "sr-only", @for = "difficultyLevel"})
-            @Html.TextBoxFor(r => r.NumberOfQuestions, new {@placeholder = "Questions", @type = "number", @min = "1", @max = "100", @class = "form-control cust-md-2"})
+            @Html.TextBoxFor(r => r.NumberOfQuestions, new { @placeholder = "Questions", @type = "number", @min = "1", @max = "100", @class = "form-control cust-md-2", @value = " " })
         </div>
         <div class="form-group">
             @Html.LabelFor(r => r.SelectedDifficultyLevelID, new {@class = "sr-only", @for = "difficultyLevel"})
