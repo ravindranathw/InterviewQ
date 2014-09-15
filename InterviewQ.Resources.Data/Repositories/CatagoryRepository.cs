@@ -8,9 +8,9 @@ using InterviewQ.Resources.EF.Models;
 
 namespace InterviewQ.Resources.Data.Repositories
 {
-    internal class CategoryRepository : BaseRepository<CategoryModel, Category>, ICatagoryRepository
+    internal class CatagoryRepository : BaseRepository<CategoryModel, Category>, ICatagoryRepository
     {
-        public CategoryRepository(InterviewQContext db)
+        public CatagoryRepository(InterviewQContext db)
             :base(db)
         {
 

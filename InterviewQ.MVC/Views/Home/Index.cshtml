@@ -1,4 +1,5 @@
-﻿@{
+﻿@model InterviewQ.MVC.Models.HomeViewModel
+@{
     ViewBag.Title = "Home Page";
 }
 
@@ -6,26 +7,24 @@
     <h1>InterviewQ</h1>
     <p class="lead">Search for a Test</p>
     
-    <form class="form-inline"  role="form">
+    @using (Html.BeginForm("Index","Home", FormMethod.Post, new {@class = "form-inline", @role = "form"}))
+    {
         <div class="form-group">
-            <label class="sr-only" for="testCategory"> Select Category</label>
-            <select id="testCategory" class="form-control">
-                <option value="" selected="selected">Select Category</option>
-                <option value=".net">.Net</option>
-                <option value="css">CSS</option>
-                <option value="html">Html</option>
-            </select>
+            @Html.LabelFor(r => r.SelectedCatagoryID, new {@class = "sr-only", @for = "testCategory"})
+            @Html.DropDownListFor(r => r.SelectedCatagoryID, Model.Catagories, "Category", new {@class = "form-control", @id = "testCategory"})
         </div>
         <div class="form-group">
-            <label class="sr-only" for="numberOfQuestions"></label>
-            <input id="numberOfQuestions" type="number" max="100" class="form-control cust-md-2" placeholder="Questions" />
+            @Html.Label("Number of Questions", new {@class = "sr-only", @for = "difficultyLevel"})
+            @Html.TextBoxFor(r => r.NumberOfQuestions, new {@placeholder = "Questions", @type = "number", @min = "1", @max = "100", @class = "form-control cust-md-2"})
         </div>
         <div class="form-group">
-            <a href="http://asp.net" class="btn btn-primary">Start &raquo;</a>
+            @Html.LabelFor(r => r.SelectedDifficultyLevelID, new {@class = "sr-only", @for = "difficultyLevel"})
+            @Html.DropDownListFor(r => r.SelectedDifficultyLevelID, Model.DifficultyLevels, "Difficulty Level", new {@class = "form-control", @id = "difficultyLevel"})
         </div>
-</form>
-   
-    
+        <div class="form-group">
+            <input name="generateTest" type="submit" class="btn btn-primary" value="Start &raquo;"/>
+        </div>
+    }
 </div>
 
 <div class="container">

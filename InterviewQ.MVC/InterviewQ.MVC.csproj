@@ -177,6 +177,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\HomeViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\TestModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -251,6 +252,20 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\InterviewQ.Business.Contracts2\InterviewQ.Business.Contracts.csproj">
+      <Project>{2699a051-4a08-4f90-b259-815b2386dcf8}</Project>
+      <Name>InterviewQ.Business.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InterviewQ.Business\InterviewQ.Business.csproj">
+      <Project>{159435a4-b2e1-4c54-8dc8-7449d5dbd7f6}</Project>
+      <Name>InterviewQ.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InterviewQ.Resources.DTO\InterviewQ.Business.Models.csproj">
+      <Project>{a8204774-78b9-4bbb-9632-20b42677ffa9}</Project>
+      <Name>InterviewQ.Business.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

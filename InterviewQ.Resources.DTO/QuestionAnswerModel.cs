@@ -9,10 +9,8 @@ namespace InterviewQ.Business.Models
         {
             QuestionID = questionAnswer.QuestionID;
             Answer = questionAnswer.Answer;
-            TestQuestionModel = new TestQuestionModel(questionAnswer.TestQuestion);
         }
         public Guid QuestionID { get; set; }
         public string Answer { get; set; }
-        public virtual TestQuestionModel TestQuestionModel { get; set; }
     }
 }

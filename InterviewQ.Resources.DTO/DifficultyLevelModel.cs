@@ -9,7 +9,8 @@ namespace InterviewQ.Business.Models
     {
         public DifficultyLevelModel(DifficultyLevel difficultyLevel)
         {
-            this.Questions = difficultyLevel.Questions.Select(q => new TestQuestionModel(q)).ToList();
+            Id = difficultyLevel.Id;
+            Difficulty = difficultyLevel.Difficulty.ToString();
         }
 
         public Guid Id { get; set; }

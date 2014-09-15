@@ -4,6 +4,8 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using System.Data.Entity;
+using AutoMapper;
+using InterviewQ.Resources.Data.Repositories.Maps;
 using InterviewQ.Resources.EF.Models;
 
 namespace InterviewQ.Resources.Data.Repositories
@@ -133,8 +135,9 @@ namespace InterviewQ.Resources.Data.Repositories
         /// <returns>The mapped model</returns>
         protected virtual TModel Map(TEntity entity)
         {
-            return default(TModel);
-          //  return Mapper.Map<TEntity, TModel>(entity);
+            RegisterEntitiesToModelsMap.Register();
+            var r = typeof (TModel);
+            return Mapper.Map<TEntity, TModel>(entity);
         }
 
         /// <summary>

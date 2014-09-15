@@ -19,11 +19,9 @@ namespace InterviewQ.Business.Models
         {
             this.Id = category.Id;
             this.Name = category.Name;
-            this.Questions = category.Questions.Select(q => new TestQuestionModel(q)).ToList();
         }
 
         public Guid Id { get; set; }
         public string Name { get; set; }
-        public virtual ICollection<TestQuestionModel> Questions { get; set; }
     }
 }
