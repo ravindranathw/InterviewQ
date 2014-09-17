@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using InterviewQ.Business.Contracts;
@@ -50,27 +51,56 @@ namespace InterviewQ.Business
             var numberOfMediumQuestions   = 50.FloorPercentageOf(numberOfQuestions);
             var numberOfHardQuestions     = 30.FloorPercentageOf(numberOfQuestions);
             var numberOfVeryHardQuestions = 10.FloorPercentageOf(numberOfQuestions);
+            numberOfHardQuestions += numberOfQuestions -
+                                     (numberOfEasyQuestions + 
+                                      numberOfMediumQuestions + 
+                                      numberOfHardQuestions +
+                                      numberOfVeryHardQuestions);
 
 
-            var easyQuestions =
-                _questionRepository
-                    .Get(q => q.CategoryID == category.Id && q.DifficultyLevelID == difficultyEasy.Id)
-                    .Take(numberOfEasyQuestions);
+            IList<TestQuestionModel> easyQuestions = new List<TestQuestionModel>();
 
-            var mediumQuestions =
-                _questionRepository
-                    .Get(q => q.CategoryID == category.Id && q.DifficultyLevelID == difficultyMedium.Id)
-                    .Take(numberOfMediumQuestions);
+            if (difficultyEasy != null)
+            {
+                easyQuestions =
+                    _questionRepository
+                        .Get(q => q.CategoryID == category.Id && q.DifficultyLevelID == difficultyEasy.Id)
+                        .Take(numberOfEasyQuestions)
+                        .ToList();
+            }
 
-            var hardQuestions =
-                _questionRepository
-                    .Get(q => q.CategoryID == category.Id && q.DifficultyLevelID == difficultyHard.Id)
-                    .Take(numberOfHardQuestions);
+            IList<TestQuestionModel> mediumQuestions = new List<TestQuestionModel>();
+            
+            if (difficultyMedium != null)
+            {
+                mediumQuestions =
+                    _questionRepository
+                        .Get(q => q.CategoryID == category.Id && q.DifficultyLevelID == difficultyMedium.Id)
+                        .Take(numberOfMediumQuestions)
+                        .ToList();
+            }
 
-            var veryHardQuestions =
-                _questionRepository
-                    .Get(q => q.CategoryID == category.Id && q.DifficultyLevelID == difficultyVeryHard.Id)
-                    .Take(numberOfVeryHardQuestions);
+            IList<TestQuestionModel> hardQuestions = new List<TestQuestionModel>();
+
+            if (difficultyHard != null)
+            {
+                hardQuestions =
+                    _questionRepository
+                        .Get(q => q.CategoryID == category.Id && q.DifficultyLevelID == difficultyHard.Id)
+                        .Take(numberOfHardQuestions)
+                        .ToList();
+            }
+
+            IList<TestQuestionModel> veryHardQuestions = new List<TestQuestionModel>();
+
+            if (difficultyVeryHard != null)
+            {
+                 veryHardQuestions =
+                    _questionRepository
+                        .Get(q => q.CategoryID == category.Id && q.DifficultyLevelID == difficultyVeryHard.Id)
+                        .Take(numberOfVeryHardQuestions)
+                        .ToList();
+            }
 
             seniorTestQuestions =
                 easyQuestions

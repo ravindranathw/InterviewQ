@@ -30,7 +30,7 @@ namespace InterviewQ.MVC.Controllers
             if (TryValidateModel(model))
             {
                 var testEngine = new TestBusinessEngine();
-                testEngine.GetGeneratedTest(model.NumberOfQuestions, model.SelectedCatagoryID, model.SelectedDifficultyLevelID);
+                var test = testEngine.GetGeneratedTest(model.NumberOfQuestions, model.SelectedCatagoryID, model.SelectedDifficultyLevelID);
                 return View();
             }
             return View(model);

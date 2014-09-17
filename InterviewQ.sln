@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterviewQ.Business.IOC", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterviewQ.Business.Contracts", "InterviewQ.Business.Contracts2\InterviewQ.Business.Contracts.csproj", "{2699A051-4A08-4F90-B259-815B2386DCF8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterviewQ.Resources.Data.Tests", "InterviewQ.Resources.Data.Tests\InterviewQ.Resources.Data.Tests.csproj", "{6F83246F-11CA-4F73-8706-E13B2D8465D1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +73,10 @@ Global
 		{2699A051-4A08-4F90-B259-815B2386DCF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2699A051-4A08-4F90-B259-815B2386DCF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2699A051-4A08-4F90-B259-815B2386DCF8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F83246F-11CA-4F73-8706-E13B2D8465D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F83246F-11CA-4F73-8706-E13B2D8465D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F83246F-11CA-4F73-8706-E13B2D8465D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F83246F-11CA-4F73-8706-E13B2D8465D1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -85,5 +91,6 @@ Global
 		{F4866153-F7EA-4ED3-981F-AA2ADF207374} = {AD4BB814-EAB0-441A-986B-85205D0A65A8}
 		{D3CAA7AA-CEE9-4502-BD09-2D66E2983E2A} = {6608C5C4-43E1-4FEC-BD1E-1F557FE6AA32}
 		{2699A051-4A08-4F90-B259-815B2386DCF8} = {6608C5C4-43E1-4FEC-BD1E-1F557FE6AA32}
+		{6F83246F-11CA-4F73-8706-E13B2D8465D1} = {AD4BB814-EAB0-441A-986B-85205D0A65A8}
 	EndGlobalSection
 EndGlobal

@@ -59,12 +59,18 @@ namespace InterviewQ.Resources.Data.Repositories
         {
             var random = new Random();
 
+            var data =
+                uow.Questions
+                    .Where(predicate).ToList();
+
+            if (!data.Any())
+                return null;
+
             return predicate != null
-                ? uow.Questions.OrderBy(r => random.Next())
-                    .Where(predicate)
+                ? data.OrderBy(r => random.Next())
                     .Select(s => new TestQuestionModel(s))
                     .ToList()
-                : uow.Questions.Select(s => new TestQuestionModel(s)).ToList();
+                : data.Select(s => new TestQuestionModel(s)).ToList();
         }
     }
 }
